@@ -46,7 +46,7 @@ cep.addEventListener('keyup', event => {
       fetch('https://weather-appe.herokuapp.com/key', {
         method: 'GET'
       }).then(result => result.json().then(response => {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
         .then(result => result.json().then(response => {
           document.getElementById('temp').innerText = `${response.main.temp}º`;
           document.getElementById('wing').innerText = `${response.wind.speed} m/s`;
