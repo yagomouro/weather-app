@@ -26,6 +26,7 @@ html {
     height: 100%;
     font-family: "Helvetica", sans-serif;
     font-size: 62.5%;
+
     scroll-behavior: smooth;
 
     --background: var(--gray-font);
@@ -47,20 +48,16 @@ html {
     &.transition *,
     &.transition *:before,
     &.transition *:after {
-        -webkit-transition: all 750ms ease-in !important;
-        -moz-transition: all 750ms ease-in !important;
-        -ms-transition: all 750ms ease-in !important;
-        -o-transition: all 750ms ease-in !important;
-        transition: all 750ms ease-in !important;
+        -webkit-transition: all 700ms !important;
+        -moz-transition: all 700ms !important;
+        -ms-transition: all 700ms !important;
+        -o-transition: all 700ms !important;
+        transition: all 700ms !important;
         transition-delay: 0 !important;
     }
 
-    p,
-    h1,
-    h2,
-    h3,
-    strong {
-        display: inline-block;
+    @media screen and (max-width: 1366px) {
+        font-size: 50%;
     }
 }
 
