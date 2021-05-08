@@ -20,7 +20,7 @@ let transition = () => {
   }, 1000)
 }
 
-fetch('http://localhost:3000/date', {
+fetch('https://weather-appe.herokuapp.com/date', {
   method: 'GET'
 }).then(response => response.json().then(result => {
   const date = result.date;
@@ -43,7 +43,7 @@ cep.addEventListener('keyup', event => {
       }
       document.getElementById('local').innerHTML = `<strong>${result.localidade}, ${result.uf} -</strong> Brasil`;
       const city = result.localidade;
-      fetch('http://localhost:3000/key', {
+      fetch('https://weather-appe.herokuapp.com/key', {
         method: 'GET'
       }).then(result => result.json().then(response => {
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
