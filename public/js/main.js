@@ -48,9 +48,9 @@ cep.addEventListener('keyup', event => {
       }).then(result => result.json().then(response => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
         .then(result => result.json().then(response => {
-          temp = response.main.temp;
-          trueTemp = temp.split('.');
-          document.getElementById('temp').innerText = `${trueTemp[0]}º`;
+          temp = response.main.temp.toString().split('.');
+          console.log(temp[0])
+          document.getElementById('temp').innerText = `${temp[0]}º`;
           document.getElementById('wing').innerText = `${response.wind.speed} m/s`;
           document.getElementById('humidity').innerText = `${response.main.humidity}%`
         }))
