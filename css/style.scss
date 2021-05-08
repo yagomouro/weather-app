@@ -1,0 +1,216 @@
+@import "config";
+
+body {
+    background-color: var(--background);
+    header {
+        height: 10rem;
+        width: 100%;
+
+        padding: 2rem 10rem;
+
+        p {
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        input[type="text"] {
+            width: 53rem;
+            height: 4.5rem;
+
+            padding: 1.4rem 4rem;
+            border-radius: 2rem;
+
+            font-size: 1.4rem;
+        }
+
+        .toggle-theme {
+            input {
+                height: 0;
+                width: 0;
+
+                visibility: hidden;
+
+                &:checked + label {
+                    background: var(--gray-600);
+                }
+
+                &:checked + label:after {
+                    left: calc(100% - 0.3rem);
+                    transform: translateX(-100%);
+                }
+            }
+
+            label {
+                width: 8rem;
+                height: 4rem;
+
+                text-indent: -999.9rem;
+
+                cursor: pointer;
+
+                color: transparent;
+                background-color: var(--white);
+
+                display: block;
+                position: relative;
+
+                border-radius: 3rem;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+
+                    width: 3.4rem;
+                    height: 3.4rem;
+
+                    top: 0.3rem;
+                    left: 0.3rem;
+
+                    background: var(--toggle);
+                    border-radius: 100%;
+
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+
+    main {
+        width: 100%;
+        height: calc(100vh - 20rem);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .weather-container {
+            width: 100%;
+            max-width: 60rem;
+            height: max-content;
+
+            gap: 10rem;
+
+            margin: auto;
+            justify-content: space-between;
+
+            .local-container {
+                h1 {
+                    font-size: 3.6rem;
+                    color: var(--text-color);
+
+                    strong {
+                        color: var(--text-color);
+                    }
+                }
+                h2 {
+                    font-size: 1.8rem;
+                    color: var(--minor-text-color);
+                }
+
+                .local.row {
+                    justify-content: flex-start;
+                    margin-top: 1rem;
+
+                    svg {
+                        margin-right: 1rem;
+                        path {
+                            fill: var(--text-color);
+                        }
+                    }
+                }
+            }
+
+            .weather {
+                align-self: center;
+
+                justify-content: flex-start;
+                gap: 3rem;
+
+                h1 {
+                    font-size: 10rem;
+                    color: var(--text-color);
+                }
+            }
+
+            .weather-info {
+                height: 7.5rem;
+                width: 100%;
+                padding: 2rem 8rem;
+
+                background-color: var(--white);
+                border-radius: 3rem;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    h2 {
+                        color: var(--gray-600);
+                        font-size: 1.6rem;
+                        margin-bottom: 5px;
+                    }
+
+                    h3 {
+                        font-weight: bold;
+                        font-size: 2rem;
+                        color: var(--black);
+                    }
+
+                    &:not(:last-child):after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+
+                        margin-left: 18rem;
+                        margin-bottom: 3rem;
+                        height: 5rem;
+                        width: 0.1rem;
+
+                        background-color: var(--black);
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        height: 10rem;
+        width: 100%;
+
+        background-color: var(--panel);
+
+        .row {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+
+            h1 {
+                font-size: 2.4rem;
+                color: var(--svg);
+            }
+
+            h2 {
+                color: var(--svg);
+                font-size: 2.4rem;
+                margin-left: 5rem;
+            }
+
+            a {
+                svg {
+                    margin-left: 1rem;
+
+                    path {
+                        fill: var(--svg);
+                    }
+                    &:hover {
+                        path {
+                            filter: brightness(0.7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
