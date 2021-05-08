@@ -1,0 +1,24 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A weather app, made with the OpenWeather and VIA Cep APIs, Js and Sass.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yagomouro/weather-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yagomouro/weather-app/issues"
+  },
+  "homepage": "https://github.com/yagomouro/weather-app#readme",
+  "dependencies": {
+    "date-fns": "^2.21.3",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1"
+  }
+}
