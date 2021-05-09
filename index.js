@@ -4,7 +4,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 const { format } = require('date-fns');
-const { ptBR, enUS } = require('date-fns/locale');
+const { ptBR } = require('date-fns/locale');
 
 
 app.use(express.json());
