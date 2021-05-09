@@ -44,7 +44,7 @@ cep.addEventListener('keyup', event => {
       document.getElementById('local').innerHTML = `<strong>${result.localidade}, ${result.uf} -</strong> Brasil`;
       const city = result.localidade;
       fetch('http://localhost:3000/key', {
-        method: 'GET'
+        method: 'POST'
       }).then(result => result.json().then(response => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
         .then(result => result.json().then(async response => {

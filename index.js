@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.render('index')
 });
 
-app.get('/key', (req, res) => {
+app.post('/key', (req, res) => {
     res.json({
         key: process.env.KEY
     })
