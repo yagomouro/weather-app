@@ -1,7 +1,18 @@
 var toggleBtn = document.querySelector('#switch');
 var docElement = document.documentElement;
 var theme = docElement.getAttribute('data-theme');
+var selectLocal = document.querySelector('#selectLocal')
 var cep = document.getElementById("inputCEP");
+
+//#region Change input
+selectLocal.addEventListener('change', () => {
+  if (selectLocal.value == 'cep') {
+    cep.setAttribute('placeholder', 'Pesquisar CEP')
+  } else if (selectLocal.value == 'cidade') {
+    cep.setAttribute('placeholder', 'Pesquisar Cidade')
+  }
+})
+//#endregion
 
 // #region Change theme color
 toggleBtn.addEventListener('change', () => {
@@ -21,6 +32,9 @@ let transition = () => {
   }, 1000)
 }
 
+//#endregion
+
+//#region Get date
 fetch('http://localhost:3000/date', {
   method: 'GET'
 }).then(response => response.json().then(result => {
@@ -32,7 +46,9 @@ fetch('http://localhost:3000/date', {
   }
   document.getElementById("data").innerText = totalD.join(" ");
 }))
+//#endregion
 
+//#region search weather
 cep.addEventListener('keyup', event => {
   if (cep.value.length == 8) {
     fetch(`https://viacep.com.br/ws/${cep.value}/json/`, {
@@ -59,3 +75,4 @@ cep.addEventListener('keyup', event => {
     }))
   }
 })
+//#endregion

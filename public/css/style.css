@@ -1,9 +1,13 @@
 :root {
-  --black: #0e1226;
-  --white: #f5f5f5;
+  --white: #fafafb;
+  --black: #312c29;
+  --black-background: #0e1226;
+  --gray-dark: #494949;
   --gray-font: #dcddeb;
   --gray-500: #acaca9;
   --gray-600: #595858;
+  --blue-footer: #22263c;
+  --blue-dark: #312c29;
   --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
@@ -30,22 +34,22 @@ html {
   --background: var(--gray-font);
   --panel: var(--white);
   --text-color: var(--black);
-  --minor-text-color: var(--gray-600);
-  --toggle: var(--white);
-  --svg: var(--gray-600);
+  --minor-text-color: var(--gray-dark);
+  --info: var(--blue-gradient);
+  --svg: var(--gray-dark);
   --background-img: url("/img/background_light.png");
-  --svg: url("/img/svg_sunny.svg");
+  --svg-day: url("/img/svg_sunny.svg");
 }
 
 html[data-theme="dark"] {
-  --background: var(--black);
+  --background: var(--black-background);
   --panel: var(--gray-600);
   --text-color: var(--white);
-  --minor-text-color: var(--gray-500);
-  --toggle: var(--blue-gradient);
+  --minor-text-color: var(--white);
+  --info: var(--blue-footer);
   --svg: var(--white);
   --background-img: url("/img/background_dark.png");
-  --svg: url("/img/svg_night.svg");
+  --svg-day: url("/img/svg_night.svg");
 }
 
 html.transition,
@@ -103,7 +107,6 @@ body {
   background-image: var(--background-img);
   background-repeat: no-repeat;
   background-size: cover;
-  background-clip: border-box;
 }
 
 body header {
@@ -118,22 +121,89 @@ body header p {
   color: var(--text-color);
 }
 
-body header input[type="text"] {
-  width: 53rem;
-  height: 4.5rem;
-  padding: 1.4rem 4rem;
+body header .input-local {
+  background-color: var(--white);
   border-radius: 2rem;
-  font-size: 1.4rem;
+  width: 60rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body header .input-local input[type="text"] {
+  padding: 1.4rem 4rem;
+  width: 38rem;
+}
+
+body header .input-local input[type="text"]:after {
+  content: "bsbs";
+  display: block;
+  position: relative;
+  top: 0;
+  height: 5px;
+  width: 10px;
+  background-color: #f00;
+}
+
+body header .input-local input,
+body header .input-local input + select {
+  background-color: var(--white);
+  height: 4rem;
+  border-radius: 2rem;
+  font-size: 1.8rem;
+  color: var(--black);
+}
+
+body header .input-local input,
+body header .input-local input + select:focus,
+body header .input-local input + select,
+body header .input-local input + select + select:focus {
+  outline: none;
+}
+
+body header .input-local input::-webkit-input-placeholder,
+body header .input-local input + select::-webkit-input-placeholder {
+  color: var(--black);
+}
+
+body header .input-local input:-ms-input-placeholder,
+body header .input-local input + select:-ms-input-placeholder {
+  color: var(--black);
+}
+
+body header .input-local input::-ms-input-placeholder,
+body header .input-local input + select::-ms-input-placeholder {
+  color: var(--black);
+}
+
+body header .input-local input::placeholder,
+body header .input-local input + select::placeholder {
+  color: var(--black);
+}
+
+body header .input-local #selectLocal {
+  width: 14rem;
+}
+
+body header .input-local #selectLocal:before {
+  content: "bsbs";
+  display: block;
+  position: relative;
+  top: 0;
+  height: 5px;
+  width: 10px;
+  background-color: #f00;
 }
 
 body header .toggle-theme input {
   height: 0;
   width: 0;
+  display: none;
   visibility: hidden;
 }
 
 body header .toggle-theme input:checked + label {
-  background: var(--white);
+  background: var(--blue-footer);
 }
 
 body header .toggle-theme input:checked + label:after {
@@ -148,7 +218,7 @@ body header .toggle-theme label {
   text-indent: -999.9rem;
   cursor: pointer;
   color: transparent;
-  background: var(--blue-gradient);
+  background: var(--white);
   display: block;
   position: relative;
   border-radius: 3rem;
@@ -157,11 +227,11 @@ body header .toggle-theme label {
 body header .toggle-theme label:after {
   content: "";
   position: absolute;
-  width: 3.4rem;
-  height: 3.4rem;
-  top: 0.3rem;
-  left: 0.3rem;
-  background: var(--toggle);
+  width: 3rem;
+  height: 3rem;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: var(--text-color);
   border-radius: 100%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -181,7 +251,17 @@ body main {
           justify-content: center;
 }
 
-body main .weather-container {
+body main .app-container {
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .app-container .weather-container {
   width: 100%;
   max-width: 60rem;
   height: -webkit-max-content;
@@ -194,37 +274,29 @@ body main .weather-container {
           justify-content: space-between;
 }
 
-body main .weather-container .local-container h1 {
+body main .app-container .weather-container .local-container h1 {
   font-size: 3.6rem;
   font-weight: normal;
   color: var(--text-color);
 }
 
-body main .weather-container .local-container h1 strong {
+body main .app-container .weather-container .local-container h1 strong {
   color: var(--text-color);
 }
 
-body main .weather-container .local-container h2 {
+body main .app-container .weather-container .local-container h2 {
   font-size: 1.8rem;
   color: var(--minor-text-color);
 }
 
-body main .weather-container .local-container .local.row {
+body main .app-container .weather-container .local-container .local.row {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-top: 1rem;
 }
 
-body main .weather-container .local-container .local.row svg {
-  margin-right: 1rem;
-}
-
-body main .weather-container .local-container .local.row svg path {
-  fill: var(--text-color);
-}
-
-body main .weather-container .weather {
+body main .app-container .weather-container .weather {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -234,20 +306,23 @@ body main .weather-container .weather {
   gap: 3rem;
 }
 
-body main .weather-container .weather h1 {
+body main .app-container .weather-container .weather h1 {
   font-size: 10rem;
   color: var(--text-color);
 }
 
-body main .weather-container .weather-info {
+body main .app-container .weather-container .weather-info {
   height: 7.5rem;
-  width: 100%;
-  padding: 2rem 8rem;
-  background-color: var(--white);
+  width: 53rem;
+  padding: 1.6rem 3.5rem;
+  background: var(--info);
   border-radius: 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-body main .weather-container .weather-info div {
+body main .app-container .weather-container .weather-info div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,19 +335,20 @@ body main .weather-container .weather-info div {
           align-items: center;
 }
 
-body main .weather-container .weather-info div h2 {
-  color: var(--gray-600);
-  font-size: 1.6rem;
-  margin-bottom: 5px;
+body main .app-container .weather-container .weather-info div h2 {
+  color: var(--white);
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
-body main .weather-container .weather-info div h3 {
+body main .app-container .weather-container .weather-info div h3 {
   font-weight: bold;
-  font-size: 2rem;
-  color: var(--black);
+  font-size: 1.8rem;
+  color: var(--white);
 }
 
-body main .weather-container .weather-info div:not(:last-child):after {
+body main .app-container .weather-container .weather-info div:not(:last-child):after {
   content: "";
   display: block;
   position: absolute;
@@ -280,7 +356,22 @@ body main .weather-container .weather-info div:not(:last-child):after {
   margin-bottom: 3rem;
   height: 5rem;
   width: 0.1rem;
-  background-color: var(--black);
+  background-color: var(--white);
+}
+
+body main .app-container .svg-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70rem;
+  height: 45rem;
+}
+
+body main .app-container .svg-container .svg {
+  height: 40rem;
+  background-image: var(--svg-day);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 body footer {

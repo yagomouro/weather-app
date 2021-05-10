@@ -1,9 +1,13 @@
 :root {
-    --black: #0e1226;
-    --white: #f5f5f5;
+    --white: #fafafb;
+    --black: #312c29;
+    --black-background: #0e1226;
+    --gray-dark: #494949;
     --gray-font: #dcddeb;
     --gray-500: #acaca9;
     --gray-600: #595858;
+    --blue-footer: #22263c;
+    --blue-dark: #312c29;
     --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
@@ -33,23 +37,23 @@ html {
     --background: var(--gray-font);
     --panel: var(--white);
     --text-color: var(--black);
-    --minor-text-color: var(--gray-600);
-    --toggle: var(--white);
-    --svg: var(--gray-600);
+    --minor-text-color: var(--gray-dark);
+    --info: var(--blue-gradient);
+    --svg: var(--gray-dark);
 
     --background-img: url("/img/background_light.png");
-    --svg: url("/img/svg_sunny.svg");
+    --svg-day: url("/img/svg_sunny.svg");
 
     &[data-theme="dark"] {
-        --background: var(--black);
+        --background: var(--black-background);
         --panel: var(--gray-600);
         --text-color: var(--white);
-        --minor-text-color: var(--gray-500);
-        --toggle: var(--blue-gradient);
+        --minor-text-color: var(--white);
+        --info: var(--blue-footer);
         --svg: var(--white);
 
         --background-img: url("/img/background_dark.png");
-        --svg: url("/img/svg_night.svg");
+        --svg-day: url("/img/svg_night.svg");
     }
 
     &.transition,

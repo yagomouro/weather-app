@@ -3,11 +3,11 @@
 body {
     height: 100vh;
     width: 100vw;
+
     background-color: var(--background);
     background-image: var(--background-img);
     background-repeat: no-repeat;
     background-size: cover;
-    background-clip: border-box;
     header {
         height: 8rem;
         width: 100%;
@@ -20,25 +20,86 @@ body {
             color: var(--text-color);
         }
 
-        input[type="text"] {
-            width: 53rem;
-            height: 4.5rem;
-
-            padding: 1.4rem 4rem;
+        .input-local {
+            background-color: var(--white);
             border-radius: 2rem;
 
-            font-size: 1.4rem;
+            width: 60rem;
+            justify-content: space-between;
+            input {
+                &[type="text"] {
+                    padding: 1.4rem 4rem;
+                    width: 38rem;
+
+                    &:after {
+                        content: "bsbs";
+                        display: block;
+                        position: relative;
+
+                        top: 0;
+
+                        height: 5px;
+                        width: 10px;
+
+                        background-color: #f00;
+                    }
+                }
+
+                &,
+                & + select {
+                    background-color: var(--white);
+
+                    height: 4rem;
+
+                    border-radius: 2rem;
+
+                    font-size: 1.8rem;
+                    color: var(--black);
+
+                    &,
+                    & + select:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: var(--black);
+                    }
+                }
+            }
+
+            #selectLocal {
+                width: 14rem;
+
+                &:before {
+                    content: "bsbs";
+                    display: block;
+                    position: relative;
+
+                    top: 0;
+
+                    height: 5px;
+                    width: 10px;
+
+                    background-color: #f00;
+                }
+
+                &:hover {
+                }
+            }
         }
 
         .toggle-theme {
+            // height: ;
+
             input {
                 height: 0;
                 width: 0;
 
+                display: none;
                 visibility: hidden;
 
                 &:checked + label {
-                    background: var(--white);
+                    background: var(--blue-footer);
                 }
 
                 &:checked + label:after {
@@ -56,7 +117,7 @@ body {
                 cursor: pointer;
 
                 color: transparent;
-                background: var(--blue-gradient);
+                background: var(--white);
 
                 display: block;
                 position: relative;
@@ -67,13 +128,13 @@ body {
                     content: "";
                     position: absolute;
 
-                    width: 3.4rem;
-                    height: 3.4rem;
+                    width: 3rem;
+                    height: 3rem;
 
-                    top: 0.3rem;
-                    left: 0.3rem;
+                    top: 0.5rem;
+                    left: 0.5rem;
 
-                    background: var(--toggle);
+                    background: var(--text-color);
                     border-radius: 100%;
 
                     transition: 0.3s;
@@ -90,93 +151,113 @@ body {
         align-items: center;
         justify-content: center;
 
-        .weather-container {
-            width: 100%;
-            max-width: 60rem;
-            height: max-content;
+        .app-container {
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
 
-            gap: 10rem;
+            .weather-container {
+                width: 100%;
+                max-width: 60rem;
+                height: max-content;
 
-            margin: auto;
-            justify-content: space-between;
+                gap: 10rem;
 
-            .local-container {
-                h1 {
-                    font-size: 3.6rem;
-                    font-weight: normal;
-                    color: var(--text-color);
+                margin: auto;
+                justify-content: space-between;
 
-                    strong {
+                .local-container {
+                    h1 {
+                        font-size: 3.6rem;
+                        font-weight: normal;
+                        color: var(--text-color);
+
+                        strong {
+                            color: var(--text-color);
+                        }
+                    }
+                    h2 {
+                        font-size: 1.8rem;
+                        color: var(--minor-text-color);
+                    }
+
+                    .local.row {
+                        justify-content: flex-start;
+                        margin-top: 1rem;
+
+                        // svg {
+                        //     margin-right: 1rem;
+                        //     path {
+                        //         fill: var(--text-color);
+                        //     }
+                        // }
+                    }
+                }
+
+                .weather {
+                    align-self: center;
+
+                    justify-content: flex-start;
+                    gap: 3rem;
+
+                    h1 {
+                        font-size: 10rem;
                         color: var(--text-color);
                     }
                 }
-                h2 {
-                    font-size: 1.8rem;
-                    color: var(--minor-text-color);
-                }
 
-                .local.row {
-                    justify-content: flex-start;
-                    margin-top: 1rem;
+                .weather-info {
+                    height: 7.5rem;
+                    width: 53rem;
+                    padding: 1.6rem 3.5rem;
 
-                    svg {
-                        margin-right: 1rem;
-                        path {
-                            fill: var(--text-color);
+                    background: var(--info);
+                    border-radius: 3rem;
+
+                    justify-content: space-between;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        h2 {
+                            color: var(--white);
+                            font-weight: normal;
+                            font-size: 1.4rem;
+                            margin-bottom: 0.5rem;
+                        }
+
+                        h3 {
+                            font-weight: bold;
+                            font-size: 1.8rem;
+                            color: var(--white);
+                        }
+
+                        &:not(:last-child):after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+
+                            margin-left: 18rem;
+                            margin-bottom: 3rem;
+                            height: 5rem;
+                            width: 0.1rem;
+
+                            background-color: var(--white);
                         }
                     }
                 }
             }
-
-            .weather {
-                align-self: center;
-
-                justify-content: flex-start;
-                gap: 3rem;
-
-                h1 {
-                    font-size: 10rem;
-                    color: var(--text-color);
-                }
-            }
-
-            .weather-info {
-                height: 7.5rem;
-                width: 100%;
-                padding: 2rem 8rem;
-
-                background-color: var(--white);
-                border-radius: 3rem;
-
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    h2 {
-                        color: var(--gray-600);
-                        font-size: 1.6rem;
-                        margin-bottom: 5px;
-                    }
-
-                    h3 {
-                        font-weight: bold;
-                        font-size: 2rem;
-                        color: var(--black);
-                    }
-
-                    &:not(:last-child):after {
-                        content: "";
-                        display: block;
-                        position: absolute;
-
-                        margin-left: 18rem;
-                        margin-bottom: 3rem;
-                        height: 5rem;
-                        width: 0.1rem;
-
-                        background-color: var(--black);
-                    }
+            .svg-container {
+                justify-content: center;
+                width: 70rem;
+                height: 45rem;
+                .svg {
+                    height: 40rem;
+                    background-image: var(--svg-day);
+                    background-repeat: no-repeat;
+                    background-size: contain;
                 }
             }
         }
