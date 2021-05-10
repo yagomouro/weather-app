@@ -11,7 +11,13 @@
         <header class="row">
             <p>Weather App</p>
             <div class="input-local row">
-                <input type="text" id="inputCEP" placeholder="Pesquisar CEP" />
+                <input
+                    oninput="sliceLength()"
+                    type="number"
+                    maxlength="8"
+                    id="inputCEP"
+                    placeholder="Pesquisar CEP"
+                />
                 <select name="" id="selectLocal">
                     <option value="cep">CEP</option>
                     <option value="cidade">Cidade</option>

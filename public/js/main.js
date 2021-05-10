@@ -3,15 +3,34 @@ var docElement = document.documentElement;
 var theme = docElement.getAttribute('data-theme');
 var selectLocal = document.querySelector('#selectLocal')
 var cep = document.getElementById("inputCEP");
+var cepType = cep.getAttribute('type');
+
 
 //#region Change input
 selectLocal.addEventListener('change', () => {
   if (selectLocal.value == 'cep') {
     cep.setAttribute('placeholder', 'Pesquisar CEP')
+    cep.setAttribute('type', 'number')
+    cep.setAttribute('maxlength', '8')
+
   } else if (selectLocal.value == 'cidade') {
     cep.setAttribute('placeholder', 'Pesquisar Cidade')
+    cep.setAttribute('type', 'text')
+    cep.setAttribute('maxlength', '30')
   }
 })
+
+function sliceLength() {
+  if (cepType == "number") {
+    if (cep.value.length > cep.maxLength) {
+      cep.value = cep.value.slice(0, cep.maxLength)
+    }
+  }
+}
+
+
+
+
 //#endregion
 
 // #region Change theme color

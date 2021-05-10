@@ -130,12 +130,12 @@ body header .input-local {
           justify-content: space-between;
 }
 
-body header .input-local input[type="text"] {
+body header .input-local input {
   padding: 1.4rem 4rem;
   width: 38rem;
 }
 
-body header .input-local input[type="text"]:after {
+body header .input-local input:after {
   content: "bsbs";
   display: block;
   position: relative;
@@ -143,6 +143,15 @@ body header .input-local input[type="text"]:after {
   height: 5px;
   width: 10px;
   background-color: #f00;
+}
+
+body header .input-local input::-webkit-outer-spin-button, body header .input-local input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body header .input-local input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 body header .input-local input,

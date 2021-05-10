@@ -27,7 +27,7 @@ body {
             width: 60rem;
             justify-content: space-between;
             input {
-                &[type="text"] {
+                & {
                     padding: 1.4rem 4rem;
                     width: 38rem;
 
@@ -42,6 +42,16 @@ body {
                         width: 10px;
 
                         background-color: #f00;
+                    }
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    &[type="number"] {
+                        -moz-appearance: textfield;
                     }
                 }
 
