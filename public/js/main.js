@@ -45,14 +45,15 @@ cep.addEventListener('keyup', event => {
       document.getElementById('local').innerHTML = `<strong>${result.localidade}, ${result.uf} -</strong> Brasil`;
       const city = result.localidade;
       fetch('http://localhost:3000/key', {
-        method: 'GET'
+        method: 'POST'
       }).then(result => result.json().then(response => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
           .then(result => result.json().then(async response => {
-            temp = response.main.temp.toString().split('.');
-            document.getElementById('temp').innerText = `${temp[0]}º`;
-            document.getElementById('wing').innerText = `${response.wind.speed} m/s`;
-            document.getElementById('humidity').innerText = `${response.main.humidity}%`
+            document.getElementById('imgW').setAttribute('src', `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
+            document.getElementById('temp').innerText = `${response.main.temp.toString().split('.')[0]}ºC`;
+            document.getElementById('feelslike').innerText = `${response.main.feels_like.toString().split('.')[0]}º`;
+            document.getElementById('humidity').innerText = `${response.main.humidity}%`;
+            document.getElementById('tmaxmin').innerText = `${response.main.temp_max.toString().split('.')[0]}º - ${response.main.temp_min.toString().split('.')[0]}º`
           }))
       }))
     }))
