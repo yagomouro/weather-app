@@ -83,6 +83,14 @@ body {
                     background-color: #f00;
                 }
 
+                option {
+                    border: none !important;
+                    background-color: var(--white);
+
+                    &:checked {
+                    }
+                }
+
                 &:hover {
                 }
             }
@@ -185,12 +193,13 @@ body {
                         justify-content: flex-start;
                         margin-top: 1rem;
 
-                        // svg {
-                        //     margin-right: 1rem;
-                        //     path {
-                        //         fill: var(--text-color);
-                        //     }
-                        // }
+                        gap: 10px;
+
+                        svg {
+                            path {
+                                fill: var(--text-color);
+                            }
+                        }
                     }
                 }
 
@@ -200,8 +209,20 @@ body {
                     justify-content: flex-start;
                     gap: 3rem;
 
+                    .imgW-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        #imgW {
+                            width: 20rem;
+                            height: 20rem;
+                            object-fit: contain;
+                        }
+                    }
+
                     h1 {
-                        font-size: 10rem;
+                        font-size: 8rem;
                         color: var(--text-color);
                     }
                 }

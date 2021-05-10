@@ -19,6 +19,7 @@ toggleBtn.addEventListener('change', () => {
   if (toggleBtn.checked) {
     transition()
     docElement.setAttribute('data-theme', 'dark')
+
   } else {
     transition()
     docElement.setAttribute('data-theme', 'light')

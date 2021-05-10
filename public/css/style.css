@@ -195,6 +195,11 @@ body header .input-local #selectLocal:before {
   background-color: #f00;
 }
 
+body header .input-local #selectLocal option {
+  border: none !important;
+  background-color: var(--white);
+}
+
 body header .toggle-theme input {
   height: 0;
   width: 0;
@@ -294,6 +299,11 @@ body main .app-container .weather-container .local-container .local.row {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-top: 1rem;
+  gap: 10px;
+}
+
+body main .app-container .weather-container .local-container .local.row svg path {
+  fill: var(--text-color);
 }
 
 body main .app-container .weather-container .weather {
@@ -306,8 +316,27 @@ body main .app-container .weather-container .weather {
   gap: 3rem;
 }
 
+body main .app-container .weather-container .weather .imgW-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .app-container .weather-container .weather .imgW-container #imgW {
+  width: 20rem;
+  height: 20rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 body main .app-container .weather-container .weather h1 {
-  font-size: 10rem;
+  font-size: 8rem;
   color: var(--text-color);
 }
 
