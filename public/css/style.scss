@@ -1,7 +1,13 @@
 @import "config";
 
 body {
+    height: 100vh;
+    width: 100vw;
     background-color: var(--background);
+    background-image: var(--background-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
     header {
         height: 8rem;
         width: 100%;
@@ -32,7 +38,7 @@ body {
                 visibility: hidden;
 
                 &:checked + label {
-                    background: var(--gray-600);
+                    background: var(--white);
                 }
 
                 &:checked + label:after {
@@ -50,7 +56,7 @@ body {
                 cursor: pointer;
 
                 color: transparent;
-                background-color: var(--white);
+                background: var(--blue-gradient);
 
                 display: block;
                 position: relative;
@@ -97,6 +103,7 @@ body {
             .local-container {
                 h1 {
                     font-size: 3.6rem;
+                    font-weight: normal;
                     color: var(--text-color);
 
                     strong {

@@ -3,6 +3,7 @@ var docElement = document.documentElement;
 var theme = docElement.getAttribute('data-theme');
 var cep = document.getElementById("inputCEP");
 
+// #region Change theme color
 toggleBtn.addEventListener('change', () => {
   if (toggleBtn.checked) {
     transition()
@@ -25,19 +26,19 @@ fetch('http://localhost:3000/date', {
 }).then(response => response.json().then(result => {
   const date = result.date;
   const totalD = date.split(' ');
-  for(i = 0; i < totalD.length; i++){
+  for (i = 0; i < totalD.length; i++) {
     let w = totalD[i];
-    if(w != 'de') totalD[i] = w[0].toUpperCase() + w.slice(1);
+    if (w != 'de') totalD[i] = w[0].toUpperCase() + w.slice(1);
   }
   document.getElementById("data").innerText = totalD.join(" ");
 }))
 
 cep.addEventListener('keyup', event => {
-  if(cep.value.length == 8) {
+  if (cep.value.length == 8) {
     fetch(`https://viacep.com.br/ws/${cep.value}/json/`, {
       method: 'GET'
     }).then(response => response.json().then(result => {
-      if(result.erro){
+      if (result.erro) {
         document.getElementById('local').innerHTML = `<strong>Cidade não encontrada!</strong>`
         return;
       }
@@ -47,12 +48,12 @@ cep.addEventListener('keyup', event => {
         method: 'GET'
       }).then(result => result.json().then(response => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&units=metric&appid=${response.key}`)
-        .then(result => result.json().then(async response => {
-          temp = response.main.temp.toString().split('.');
-          document.getElementById('temp').innerText = `${temp[0]}º`;
-          document.getElementById('wing').innerText = `${response.wind.speed} m/s`;
-          document.getElementById('humidity').innerText = `${response.main.humidity}%`
-        }))
+          .then(result => result.json().then(async response => {
+            temp = response.main.temp.toString().split('.');
+            document.getElementById('temp').innerText = `${temp[0]}º`;
+            document.getElementById('wing').innerText = `${response.wind.speed} m/s`;
+            document.getElementById('humidity').innerText = `${response.main.humidity}%`
+          }))
       }))
     }))
   }

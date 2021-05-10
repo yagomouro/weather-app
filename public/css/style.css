@@ -1,9 +1,10 @@
 :root {
-  --black: #050505;
+  --black: #0e1226;
   --white: #f5f5f5;
   --gray-font: #dcddeb;
   --gray-500: #acaca9;
   --gray-600: #595858;
+  --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
 *,
@@ -12,7 +13,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   border: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +31,10 @@ html {
   --panel: var(--white);
   --text-color: var(--black);
   --minor-text-color: var(--gray-600);
-  --toggle: var(--gray-500);
+  --toggle: var(--white);
   --svg: var(--gray-600);
+  --background-img: url("/img/background_light.png");
+  --svg: url("/img/svg_sunny.svg");
 }
 
 html[data-theme="dark"] {
@@ -39,8 +42,10 @@ html[data-theme="dark"] {
   --panel: var(--gray-600);
   --text-color: var(--white);
   --minor-text-color: var(--gray-500);
-  --toggle: var(--gray-font);
+  --toggle: var(--blue-gradient);
   --svg: var(--white);
+  --background-img: url("/img/background_dark.png");
+  --svg: url("/img/svg_night.svg");
 }
 
 html.transition,
@@ -50,7 +55,7 @@ html.transition *:after {
   -webkit-transition: all 700ms !important;
   transition: all 700ms !important;
   -webkit-transition-delay: 0 !important;
-  transition-delay: 0 !important;
+          transition-delay: 0 !important;
 }
 
 @media screen and (max-width: 1366px) {
@@ -65,14 +70,14 @@ html.transition *:after {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .column {
@@ -81,18 +86,24 @@ html.transition *:after {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: space-between;
-  -ms-flex-align: space-between;
-  align-items: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
   background-color: var(--background);
+  background-image: var(--background-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: border-box;
 }
 
 body header {
@@ -121,14 +132,14 @@ body header .toggle-theme input {
   visibility: hidden;
 }
 
-body header .toggle-theme input:checked+label {
-  background: var(--gray-600);
+body header .toggle-theme input:checked + label {
+  background: var(--white);
 }
 
-body header .toggle-theme input:checked+label:after {
+body header .toggle-theme input:checked + label:after {
   left: calc(100% - 0.3rem);
   -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 body header .toggle-theme label {
@@ -137,7 +148,7 @@ body header .toggle-theme label {
   text-indent: -999.9rem;
   cursor: pointer;
   color: transparent;
-  background-color: var(--white);
+  background: var(--blue-gradient);
   display: block;
   position: relative;
   border-radius: 3rem;
@@ -152,6 +163,7 @@ body header .toggle-theme label:after {
   left: 0.3rem;
   background: var(--toggle);
   border-radius: 100%;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -162,11 +174,11 @@ body main {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body main .weather-container {
@@ -178,12 +190,13 @@ body main .weather-container {
   gap: 10rem;
   margin: auto;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body main .weather-container .local-container h1 {
   font-size: 3.6rem;
+  font-weight: normal;
   color: var(--text-color);
 }
 
@@ -198,8 +211,8 @@ body main .weather-container .local-container h2 {
 
 body main .weather-container .local-container .local.row {
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-top: 1rem;
 }
 
@@ -213,11 +226,11 @@ body main .weather-container .local-container .local.row svg path {
 
 body main .weather-container .weather {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   gap: 3rem;
 }
 
@@ -240,11 +253,11 @@ body main .weather-container .weather-info div {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body main .weather-container .weather-info div h2 {
@@ -280,8 +293,8 @@ body footer .row {
   width: 100%;
   height: 100%;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body footer .row h1 {
@@ -297,19 +310,16 @@ body footer .row h2 {
 
 body footer .row a svg {
   margin-left: 1rem;
-  -webkit-transition: all 700ms !important;
-  transition: all 700ms !important;
-  -webkit-transition-delay: 0 !important;
-  transition-delay: 0 !important;
 }
 
 body footer .row a svg path {
   fill: var(--svg);
+  -webkit-transition: all 300ms !important;
+  transition: all 300ms !important;
 }
 
 body footer .row a svg:hover path {
   -webkit-filter: brightness(0.7);
-  filter: brightness(0.7);
+          filter: brightness(0.7);
 }
-
 /*# sourceMappingURL=style.css.map */

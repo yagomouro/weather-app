@@ -1,9 +1,10 @@
 :root {
-    --black: #050505;
+    --black: #0e1226;
     --white: #f5f5f5;
     --gray-font: #dcddeb;
     --gray-500: #acaca9;
     --gray-600: #595858;
+    --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
 *,
@@ -33,17 +34,24 @@ html {
     --panel: var(--white);
     --text-color: var(--black);
     --minor-text-color: var(--gray-600);
-    --toggle: var(--gray-500);
+    --toggle: var(--white);
     --svg: var(--gray-600);
+
+    --background-img: url("/img/background_light.png");
+    --svg: url("/img/svg_sunny.svg");
 
     &[data-theme="dark"] {
         --background: var(--black);
         --panel: var(--gray-600);
         --text-color: var(--white);
         --minor-text-color: var(--gray-500);
-        --toggle: var(--gray-font);
+        --toggle: var(--blue-gradient);
         --svg: var(--white);
+
+        --background-img: url("/img/background_dark.png");
+        --svg: url("/img/svg_night.svg");
     }
+
     &.transition,
     &.transition *,
     &.transition *:before,
