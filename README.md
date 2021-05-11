@@ -58,6 +58,11 @@
 - 2 - Go to [API](https://openweathermap.org/api), and subscribe at "Current Weather Data", next copy your [API keys](https://home.openweathermap.org/api_keys)
 - 3 - Create .env file on the root of the project and paste your KEY
 
+Paste your key same as .env.example file
+```bash
+KEY= your key here
+```
+
 Clone the project and access the folder
 
 ```bash
