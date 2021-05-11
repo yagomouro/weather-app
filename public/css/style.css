@@ -202,16 +202,7 @@ body header .input-local input {
   padding: 1.4rem 4rem;
   width: 100%;
   max-width: 38rem;
-}
-
-body header .input-local input:after {
-  content: "bsbs";
-  display: block;
-  position: relative;
-  top: 0;
-  height: 0.5rem;
-  width: 1rem;
-  background-color: #f00;
+  border-radius: 2rem 0 0 2rem;
 }
 
 body header .input-local input::-webkit-outer-spin-button, body header .input-local input::-webkit-inner-spin-button {
@@ -227,7 +218,6 @@ body header .input-local input,
 body header .input-local input + select {
   background-color: var(--white);
   height: 4rem;
-  border-radius: 2rem;
   font-size: 1.8rem;
   color: var(--black);
 }
@@ -261,20 +251,14 @@ body header .input-local input + select::placeholder {
 
 body header .input-local #selectLocal {
   width: 14rem;
-}
-
-body header .input-local #selectLocal:before {
-  content: "bsbs";
-  display: block;
-  position: relative;
-  top: 0;
-  height: 0.5rem;
-  width: 1rem;
-  background-color: #f00;
+  border-radius: 0 2rem 2rem 0;
+  border-left: 0.3px solid var(--blue-footer);
+  padding-left: 1.5rem;
 }
 
 body header .input-local #selectLocal option {
   border: none !important;
+  border-radius: 4px !important;
   background-color: var(--white);
 }
 
