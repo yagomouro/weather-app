@@ -166,15 +166,6 @@ body header .name-theme {
   width: 100%;
 }
 
-@media screen and (max-width: 750px) {
-  body header .name-theme .name-theme {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 6rem;
-  }
-}
-
 body header .input-local {
   width: 100%;
   max-width: 60rem;
@@ -198,6 +189,12 @@ body header .input-local {
     left: 0;
     margin-left: 0;
     margin-top: 5rem;
+  }
+  body header .input-local .name-theme {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 6rem;
   }
 }
 
@@ -339,6 +336,7 @@ body main .app-container {
 @media screen and (max-width: 750px) {
   body main .app-container {
     width: 70%;
+    margin-top: 8rem;
   }
 }
 
@@ -397,7 +395,7 @@ body main .app-container .weather-container .local-container .local.row svg path
 
 @media screen and (max-width: 550px) {
   body main .app-container .weather-container {
-    margin-top: 10rem;
+    margin-top: 4rem;
     gap: 3rem !important;
   }
 }
@@ -542,6 +540,15 @@ body main .app-container .svg-container .svg {
 @media screen and (max-width: 900px) {
   body main .app-container .svg-container {
     display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body main {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    background-size: auto;
   }
 }
 

@@ -38,13 +38,6 @@ body {
 
         .name-theme {
             width: 100%;
-
-            @media screen and (max-width: 750px) {
-                .name-theme {
-                    justify-content: center;
-                    gap: 6rem;
-                }
-            }
         }
 
         .input-local {
@@ -68,6 +61,11 @@ body {
                 margin-left: 0;
 
                 margin-top: 5rem;
+
+                .name-theme {
+                    justify-content: center;
+                    gap: 6rem;
+                }
             }
 
             input {
@@ -201,7 +199,7 @@ body {
 
             @media screen and (max-width: 750px) {
                 width: 70%;
-                // margin-top: 4rem;
+                margin-top: 8rem;
             }
 
             .weather-container {
@@ -252,7 +250,7 @@ body {
                     }
                 }
                 @media screen and (max-width: 550px) {
-                    margin-top: 10rem;
+                    margin-top: 4rem;
 
                     gap: 3rem !important;
                 }
@@ -370,6 +368,11 @@ body {
                     display: none;
                 }
             }
+        }
+
+        @media screen and (max-width: 750px) {
+            height: max-content;
+            background-size: auto;
         }
     }
 
