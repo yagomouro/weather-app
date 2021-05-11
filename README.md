@@ -60,7 +60,7 @@
 
 Paste your key same as .env.example file
 ```bash
-KEY= your key here
+KEY=your key here
 ```
 
 Clone the project and access the folder
