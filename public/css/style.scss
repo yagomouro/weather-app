@@ -205,7 +205,7 @@ body {
                 max-width: 60rem;
                 height: max-content;
 
-                gap: 10rem;
+                gap: 8rem;
 
                 margin: auto;
                 justify-content: space-between;
@@ -247,9 +247,11 @@ body {
                             }
                         }
                     }
-                    @media screen and (max-width: 450px) {
-                        gap: 1rem;
-                    }
+                }
+                @media screen and (max-width: 550px) {
+                    margin-top: 10rem;
+
+                    gap: 3rem !important;
                 }
 
                 .weather {

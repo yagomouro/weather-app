@@ -341,7 +341,7 @@ body main .app-container .weather-container {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  gap: 10rem;
+  gap: 8rem;
   margin: auto;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -390,9 +390,10 @@ body main .app-container .weather-container .local-container .local.row svg path
   fill: #ff4646;
 }
 
-@media screen and (max-width: 450px) {
-  body main .app-container .weather-container .local-container {
-    gap: 1rem;
+@media screen and (max-width: 550px) {
+  body main .app-container .weather-container {
+    margin-top: 10rem;
+    gap: 3rem !important;
   }
 }
 
