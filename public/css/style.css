@@ -186,11 +186,13 @@ body header .input-local {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-shadow: 0rem 0.5rem 1.5rem 0.5rem rgba(255, 255, 255, 0.1);
+          box-shadow: 0rem 0.5rem 1.5rem 0.5rem rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (max-width: 750px) {
   body header .input-local {
-    position: static;
+    position: relative;
     left: 0;
     margin-left: 0;
     margin-top: 5rem;
@@ -206,17 +208,20 @@ body header .input-local {
 body header .input-local input {
   padding: 1.4rem 4rem;
   width: 100%;
-  max-width: 38rem;
+  border: 0.1rem solid transparent;
   border-radius: 2rem 0 0 2rem;
 }
 
 body header .input-local input::-webkit-outer-spin-button, body header .input-local input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+          appearance: none;
   margin: 0;
 }
 
 body header .input-local input[type="number"] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 body header .input-local input,
@@ -254,17 +259,46 @@ body header .input-local input + select::placeholder {
   color: var(--black);
 }
 
+body header .input-local input:focus {
+  border: 0.1rem solid var(--black);
+}
+
 body header .input-local #selectLocal {
   width: 14rem;
   border-radius: 0 2rem 2rem 0;
-  border-left: 0.3px solid var(--gray-500);
+  border: 0.1rem solid transparent;
+  border-left: 0.03rem solid var(--gray-500);
   padding-left: 1.8rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("/img/icon_select.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: 85%;
+  background-size: 1.8rem;
 }
 
 body header .input-local #selectLocal option {
   border: none !important;
-  border-radius: 4px !important;
+  border-radius: 0.4rem !important;
   background-color: var(--white);
+}
+
+body header .input-local #selectLocal:focus {
+  outline: none;
+  border: none;
+  border: 0.1rem solid !important;
+}
+
+body header .input-local label[for="inputCEP"]::before {
+  content: url("/img/icon_lupa.svg");
+  display: block;
+  position: relative;
+  width: 0rem;
+  height: 0rem;
+  left: 1.2rem;
+  bottom: 1rem;
 }
 
 body header .toggle-theme {
@@ -322,7 +356,7 @@ body header .toggle-theme label:after {
 body main {
   width: 100%;
   height: calc(100vh - 8rem);
-  min-height: 500px;
+  min-height: 50rem;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
