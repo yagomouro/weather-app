@@ -11,13 +11,25 @@ var timer;
 //#region Change input
 selectLocal.addEventListener('change', () => {
   if (selectLocal.value == 'cep') {
-    document.getElementById('local').innerHTML = `<strong>Digite um CEP do Brasil</strong>`
+    cep.value = "";
+    document.getElementById('local').innerHTML = `<strong>Digite um CEP do Brasil</strong>`;
+    document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
+    document.getElementById('temp').innerText = '-- ºC';
+    document.getElementById('feelslike').innerText = '-- ºC';
+    document.getElementById('tmaxmin').innerText = '-- ºC';
+    document.getElementById('humidity').innerText = '-- %';
     cep.setAttribute('placeholder', 'Pesquisar CEP')
     cep.setAttribute('type', 'number')
     cep.setAttribute('maxlength', '8')
 
   } else if (selectLocal.value == 'cidade') {
-    document.getElementById('local').innerHTML = `<strong>Digite uma cidade do Brasil</strong>`
+    cep.value = "";
+    document.getElementById('local').innerHTML = `<strong>Digite uma cidade do Brasil</strong>`;
+    document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
+    document.getElementById('temp').innerText = '-- ºC';
+    document.getElementById('feelslike').innerText = '-- ºC';
+    document.getElementById('tmaxmin').innerText = '-- ºC';
+    document.getElementById('humidity').innerText = '-- %';
     cep.setAttribute('placeholder', 'Pesquisar Cidade')
     cep.setAttribute('type', 'text')
     cep.setAttribute('maxlength', '30')
@@ -86,7 +98,7 @@ cep.addEventListener('keyup', event => {
           document.getElementById('temp').innerText = '-- ºC';
           document.getElementById('feelslike').innerText = '-- ºC';
           document.getElementById('tmaxmin').innerText = '-- ºC';
-          document.getElementById('humidity').innerText = '-- %'
+          document.getElementById('humidity').innerText = '-- %';
           return;
         }
         document.getElementById('local').innerHTML = `<strong>${result.localidade}, ${result.uf} -</strong> Brasil`;
