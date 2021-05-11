@@ -1,3 +1,65 @@
-# Weather App
 
-A weather app, made with the OpenWeather and VIA Cep APIs, Js and Sass.
+<h1 align="center"> 
+ Weather app
+</h1>
+
+<p align="center">
+	A weather app, made with the OpenWeather and ViaCEP APIs, Js and Sass.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/forks/yagomouro/weather-app?label=forks&message=MIT&color=FAFAFB&labelColor=162E8F" alt="GitHub forks">
+  
+  <img src="https://img.shields.io/github/stars/yagomouro/weather-app?label=stars&message=MIT&color=FAFAFB&labelColor=162E8F" alt="GitHub stars">
+</p>
+
+<h1> 
+  🖥️ Desktop version:
+</h1>
+
+<p align="center">
+    <img alt="Weather app" title="Weather app" src="https://github.com/yagomouro/weather-app/blob/master/public/img/index-light.png"/>
+</p>
+
+<p align="center">
+    <img alt="Weather app" title="Weather app" src="https://github.com/yagomouro/weather-app/blob/master/public/img/index-dark.png"/>
+</p>
+
+<h1> 
+  📱 Mobile version:
+</h1>
+
+<p align="center">
+    <img alt="Weather app" title="Weather app" widht="600px" height="600px" src="https://github.com/yagomouro/weather-app/blob/master/public/img/mobile-light.png"/>
+    <img alt="Weather app" title="Weather app" widht="600px" height="600px" src="https://github.com/yagomouro/weather-app/blob/master/public/img/mobile-dark.png"/>
+</p>
+
+## 🧪 Technologies
+[![HTML5](https://camo.githubusercontent.com/d63d473e728e20a286d22bb2226a7bf45a2b9ac6c72c59c0e61e9730bfe4168c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632363f7374796c653d666f722d7468652d6261646765266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)  [![JavaScript](https://camo.githubusercontent.com/62d37abe760867620e0baea1066303719d630a82936837ba7bff6b0c754e3c9f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742532302d2532333332333333302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)  [![SASS](https://camo.githubusercontent.com/792bcbdb5dcb4c45260a7b911b030f70814b2a77eca18b388565b4468a02dc15/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f534153532532302d686f7470696e6b2e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d53415353266c6f676f436f6c6f723d7768697465)](https://sass-lang.com/)
+
+### 🔨  Tools
+
+- [Openweathermap](https://openweathermap.org/)
+- [ViaCEP](https://viacep.com.br/)
+
+## 🚀 Getting started
+
+Clone the project and access the folder
+
+```bash
+$ git clone https://github.com/yagomouro/weather-app
+```
+Create .env file on the root, and add KEY
+```bash
+$ KEY=2675d63ae0581529a9f2b8478d668c1e
+```
+Follow the steps below
+```bash
+# Install the dependencies
+$ npm install
+
+# Start the project
+$ npm start
+```
+
+
