@@ -24,7 +24,6 @@ selectLocal.addEventListener('change', () => {
     cep.setAttribute('maxlength', '8')
 
   } else if (selectLocal.value == 'cidade') {
-    cep.innerText = "";
     cep.value = "";
     document.getElementById('local').innerHTML = `<strong>Digite uma cidade do Brasil</strong>`;
     document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
