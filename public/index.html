@@ -22,20 +22,25 @@
                 </div>
             </div>
             <div class="input-local row">
-                <label for="inputCEP"></label>
-                <input
-                    oninput="sliceLength()"
-                    type="number"
-                    maxlength="8"
-                    id="inputCEP"
-                    placeholder="Pesquisar CEP"
-                />
+                <div class="column input-wrapper">
+                    <label for="inputCEP"></label>
+                    <input
+                        oninput="sliceLength()"
+                        type="number"
+                        maxlength="8"
+                        id="inputCEP"
+                        placeholder="Pesquisar CEP"
+                    />
+                    <div class="border"></div>
+                </div>
 
-                <select name="" id="selectLocal">
-                    <option value="cep">CEP</option>
-                    <option value="cidade">Cidade</option>
-                </select>
-                <label for="selectLocal"></label>
+                <div class="column select-wrapper">
+                    <select name="" id="selectLocal">
+                        <option value="cep">CEP</option>
+                        <option value="cidade">Cidade</option>
+                    </select>
+                    <div class="border"></div>
+                </div>
             </div>
         </header>
         <main>

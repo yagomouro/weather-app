@@ -69,96 +69,107 @@ body {
                 }
             }
 
-            input {
-                padding: 1.4rem 4rem;
+            .input-wrapper {
                 width: 100%;
-                // max-width: 38rem;
-                border: 0.3rem solid transparent;
-                border-radius: 2rem 0 0 2rem;
+                input {
+                    padding: 2rem 4rem;
+                    padding-top: 2.3rem;
+                    width: 100%;
+                    // max-width: 38rem;
+                    border-bottom: 0.3rem solid transparent;
+                    border-radius: 2rem 0 0 2rem;
 
-                transition: all 300ms;
+                    transition: all 300ms;
 
-                &::-webkit-outer-spin-button,
-                &::-webkit-inner-spin-button {
-                    appearance: none;
-                    margin: 0;
-                }
-
-                &[type="number"] {
-                    appearance: textfield;
-                }
-
-                &,
-                & + select {
                     background-color: var(--white);
 
-                    height: 4rem;
+                    height: 4.4rem;
 
                     font-size: 1.8rem;
                     color: var(--black);
 
-                    &,
-                    & + select:focus {
-                        outline: none;
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        appearance: none;
+                        margin: 0;
                     }
 
-                    &::placeholder {
-                        color: var(--black);
+                    &[type="number"] {
+                        appearance: textfield;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-bottom: 0.3rem solid var(--blue-light);
+                        transition: all 300ms !important;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: relative;
+
+                        width: 100px;
+                        height: 100px;
+
+                        background-color: #f00;
                     }
                 }
 
-                &:focus {
-                    border: 0.3rem solid var(--blue-light);
-                    transition: all 300ms !important;
+                label[for="inputCEP"] {
+                    &::before {
+                        content: url("/img/icon_lupa.svg");
+                        display: block;
+                        position: relative;
+
+                        width: 0rem;
+                        height: 0rem;
+
+                        left: 1.2rem;
+                        bottom: -1.2rem;
+                    }
                 }
             }
-
-            #selectLocal {
-                width: 14rem;
-
-                border-radius: 0 2rem 2rem 0;
-                border: 0.3rem solid transparent;
-                border-left: 0.03rem solid var(--gray-500);
-
-                padding: 0 1.8rem;
-
-                appearance: none;
-
-                transition: all 300ms;
-
-                background-image: url("/img/icon_select.svg");
-                background-repeat: no-repeat;
-                background-color: transparent;
-                background-position: 85%;
-                background-size: 1.8rem;
-
-                option {
-                    border: none !important;
-                    border-radius: 0.4rem !important;
+            .select-wrapper {
+                #selectLocal {
                     background-color: var(--white);
-                }
 
-                &:focus {
-                    outline: none;
-                    border: none;
+                    height: 4.4rem;
 
-                    border: 0.3rem solid var(--blue-light);
+                    font-size: 1.8rem;
+                    color: var(--black);
+
+                    width: 14rem;
+
+                    border-radius: 0 2rem 2rem 0;
+                    border-bottom: 0.3rem solid transparent;
+                    border-left: 0.3rem solid var(--gray-500);
+
+                    padding: 0 1.8rem;
+
+                    appearance: none;
 
                     transition: all 300ms;
-                }
-            }
 
-            label[for="inputCEP"] {
-                &::before {
-                    content: url("/img/icon_lupa.svg");
-                    display: block;
-                    position: relative;
+                    background-image: url("/img/icon_select.svg");
+                    background-repeat: no-repeat;
+                    background-color: transparent;
+                    background-position: 85%;
+                    background-size: 1.8rem;
 
-                    width: 0rem;
-                    height: 0rem;
+                    option {
+                        border: none !important;
+                        border-radius: 0.4rem !important;
+                        background-color: var(--white);
+                    }
 
-                    left: 1.2rem;
-                    bottom: 1rem;
+                    &:focus {
+                        outline: none;
+
+                        border-bottom: 0.3rem solid var(--blue-light);
+
+                        transition: all 300ms;
+                    }
                 }
             }
         }
@@ -344,6 +355,10 @@ body {
                     border-radius: 3rem;
 
                     justify-content: space-between;
+
+                    * {
+                        transition: all 300ms !important;
+                    }
 
                     div {
                         display: flex;

@@ -8,7 +8,7 @@
   --gray-600: #595858;
   --blue-footer: #22263c;
   --blue-dark: #312c29;
-  --blue-light: #2455da;
+  --blue-light: #1d8df0;
   --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
@@ -206,73 +206,71 @@ body header .input-local {
   }
 }
 
-body header .input-local input {
-  padding: 1.4rem 4rem;
+body header .input-local .input-wrapper {
   width: 100%;
-  border: 0.3rem solid transparent;
+}
+
+body header .input-local .input-wrapper input {
+  padding: 2rem 4rem;
+  padding-top: 2.3rem;
+  width: 100%;
+  border-bottom: 0.3rem solid transparent;
   border-radius: 2rem 0 0 2rem;
   -webkit-transition: all 300ms;
   transition: all 300ms;
+  background-color: var(--white);
+  height: 4.4rem;
+  font-size: 1.8rem;
+  color: var(--black);
 }
 
-body header .input-local input::-webkit-outer-spin-button, body header .input-local input::-webkit-inner-spin-button {
+body header .input-local .input-wrapper input::-webkit-outer-spin-button, body header .input-local .input-wrapper input::-webkit-inner-spin-button {
   -webkit-appearance: none;
           appearance: none;
   margin: 0;
 }
 
-body header .input-local input[type="number"] {
+body header .input-local .input-wrapper input[type="number"] {
   -webkit-appearance: textfield;
      -moz-appearance: textfield;
           appearance: textfield;
 }
 
-body header .input-local input,
-body header .input-local input + select {
-  background-color: var(--white);
-  height: 4rem;
-  font-size: 1.8rem;
-  color: var(--black);
-}
-
-body header .input-local input,
-body header .input-local input + select:focus,
-body header .input-local input + select,
-body header .input-local input + select + select:focus {
+body header .input-local .input-wrapper input:focus {
   outline: none;
-}
-
-body header .input-local input::-webkit-input-placeholder,
-body header .input-local input + select::-webkit-input-placeholder {
-  color: var(--black);
-}
-
-body header .input-local input:-ms-input-placeholder,
-body header .input-local input + select:-ms-input-placeholder {
-  color: var(--black);
-}
-
-body header .input-local input::-ms-input-placeholder,
-body header .input-local input + select::-ms-input-placeholder {
-  color: var(--black);
-}
-
-body header .input-local input::placeholder,
-body header .input-local input + select::placeholder {
-  color: var(--black);
-}
-
-body header .input-local input:focus {
-  border: 0.3rem solid var(--blue-light);
+  border-bottom: 0.3rem solid var(--blue-light);
   -webkit-transition: all 300ms !important;
   transition: all 300ms !important;
 }
 
-body header .input-local #selectLocal {
+body header .input-local .input-wrapper input::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+}
+
+body header .input-local .input-wrapper label[for="inputCEP"]::before {
+  content: url("/img/icon_lupa.svg");
+  display: block;
+  position: relative;
+  width: 0rem;
+  height: 0rem;
+  left: 1.2rem;
+  bottom: -1.2rem;
+}
+
+body header .input-local .select-wrapper #selectLocal {
+  background-color: var(--white);
+  height: 4.4rem;
+  font-size: 1.8rem;
+  color: var(--black);
   width: 14rem;
   border-radius: 0 2rem 2rem 0;
-  border: 0.3rem solid transparent;
-  border-left: 0.03rem solid var(--gray-500);
+  border-bottom: 0.3rem solid transparent;
+  border-left: 0.3rem solid var(--gray-500);
   padding: 0 1.8rem;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -286,28 +284,17 @@ body header .input-local #selectLocal {
   background-size: 1.8rem;
 }
 
-body header .input-local #selectLocal option {
+body header .input-local .select-wrapper #selectLocal option {
   border: none !important;
   border-radius: 0.4rem !important;
   background-color: var(--white);
 }
 
-body header .input-local #selectLocal:focus {
+body header .input-local .select-wrapper #selectLocal:focus {
   outline: none;
-  border: none;
-  border: 0.3rem solid var(--blue-light);
+  border-bottom: 0.3rem solid var(--blue-light);
   -webkit-transition: all 300ms;
   transition: all 300ms;
-}
-
-body header .input-local label[for="inputCEP"]::before {
-  content: url("/img/icon_lupa.svg");
-  display: block;
-  position: relative;
-  width: 0rem;
-  height: 0rem;
-  left: 1.2rem;
-  bottom: 1rem;
 }
 
 body header .toggle-theme {
@@ -512,6 +499,11 @@ body main .app-container .weather-container .weather-info {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+body main .app-container .weather-container .weather-info * {
+  -webkit-transition: all 300ms !important;
+  transition: all 300ms !important;
 }
 
 body main .app-container .weather-container .weather-info div {
