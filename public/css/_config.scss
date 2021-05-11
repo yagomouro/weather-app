@@ -69,6 +69,10 @@ html {
         transition-delay: 0 !important;
     }
 
+    @media screen and (min-width: 2000px) {
+        font-size: 80%;
+    }
+
     @media screen and (max-width: 1366px) {
         font-size: 55%;
     }

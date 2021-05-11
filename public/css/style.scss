@@ -3,7 +3,6 @@
 body {
     height: 100vh;
 
-    min-height: 500px;
     width: 100vw;
 
     background-color: var(--background);
@@ -137,6 +136,10 @@ body {
                 display: none;
                 visibility: hidden;
 
+                -webkit-tap-highlight-color: transparent;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+
                 &:checked + label {
                     background: var(--blue-footer);
                 }
@@ -163,6 +166,10 @@ body {
 
                 border-radius: 3rem;
 
+                -webkit-tap-highlight-color: transparent;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+
                 &:after {
                     content: "";
                     position: absolute;
@@ -185,6 +192,8 @@ body {
     main {
         width: 100%;
         height: calc(100vh - 8rem);
+
+        min-height: 500px;
 
         margin: auto;
 

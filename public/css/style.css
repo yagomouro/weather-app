@@ -63,6 +63,12 @@ html.transition *:after {
           transition-delay: 0 !important;
 }
 
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 80%;
+  }
+}
+
 @media screen and (max-width: 1366px) {
   html {
     font-size: 55%;
@@ -121,7 +127,6 @@ html.transition *:after {
 
 body {
   height: 100vh;
-  min-height: 500px;
   width: 100vw;
   background-color: var(--background);
   background-image: var(--background-img);
@@ -271,6 +276,9 @@ body header .toggle-theme input {
   width: 0;
   display: none;
   visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 body header .toggle-theme input:checked + label {
@@ -293,6 +301,9 @@ body header .toggle-theme label {
   display: block;
   position: relative;
   border-radius: 3rem;
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 body header .toggle-theme label:after {
@@ -311,6 +322,7 @@ body header .toggle-theme label:after {
 body main {
   width: 100%;
   height: calc(100vh - 8rem);
+  min-height: 500px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
