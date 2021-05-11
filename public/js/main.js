@@ -18,11 +18,13 @@ selectLocal.addEventListener('change', () => {
     document.getElementById('feelslike').innerText = '-- ºC';
     document.getElementById('tmaxmin').innerText = '-- ºC';
     document.getElementById('humidity').innerText = '-- %';
+    cep.innerText = "";
     cep.setAttribute('placeholder', 'Pesquisar CEP')
     cep.setAttribute('type', 'number')
     cep.setAttribute('maxlength', '8')
 
   } else if (selectLocal.value == 'cidade') {
+    cep.innerText = "";
     cep.value = "";
     document.getElementById('local').innerHTML = `<strong>Digite uma cidade do Brasil</strong>`;
     document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
@@ -87,7 +89,7 @@ fetch('http://localhost:3000/date', {
 //#region search weather
 cep.addEventListener('keyup', event => {
   clearTimeout(timer);
-  if(selectLocal.selectedIndex == 0) {
+  if (selectLocal.selectedIndex == 0) {
     if (cep.value.length == 8) {
       fetch(`https://viacep.com.br/ws/${cep.value}/json/`, {
         method: 'GET'
@@ -118,33 +120,33 @@ cep.addEventListener('keyup', event => {
       }))
     }
   }
-  else{
+  else {
     let city = cep.value;
-    if(cep.value){
+    if (cep.value) {
       timer = setTimeout(() => {
         fetch('http://localhost:3000/key', {
-        method: 'POST'
-      }).then(result => result.json().then(response => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},BR&lang=pt&units=metric&appid=${response.key}`).then(
-          res => res.json().then(response => {
-            if(response.cod == '404'){
-              document.getElementById('local').innerHTML = `<strong>Cidade não encontrada!</strong>`;
-              document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
-              document.getElementById('temp').innerText = '-- ºC';
-              document.getElementById('feelslike').innerText = '-- ºC';
-              document.getElementById('tmaxmin').innerText = '-- ºC';
-              document.getElementById('humidity').innerText = '-- %'
-              return;
-            }
-            document.getElementById('local').innerHTML = `<strong>${response.name} -</strong> Brasil`;
-            document.getElementById('imgW').setAttribute('src', `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
-            document.getElementById('temp').innerText = `${response.main.temp.toString().split('.')[0]}ºC`;
-            document.getElementById('feelslike').innerText = `${response.main.feels_like.toString().split('.')[0]}º`;
-            document.getElementById('humidity').innerText = `${response.main.humidity}%`;
-            document.getElementById('tmaxmin').innerText = `${response.main.temp_max.toString().split('.')[0]}º - ${response.main.temp_min.toString().split('.')[0]}º`
-          })
-        )
-      }))
+          method: 'POST'
+        }).then(result => result.json().then(response => {
+          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},BR&lang=pt&units=metric&appid=${response.key}`).then(
+            res => res.json().then(response => {
+              if (response.cod == '404') {
+                document.getElementById('local').innerHTML = `<strong>Cidade não encontrada!</strong>`;
+                document.getElementById('imgW').setAttribute('src', `/img/cloudy-day.svg`);
+                document.getElementById('temp').innerText = '-- ºC';
+                document.getElementById('feelslike').innerText = '-- ºC';
+                document.getElementById('tmaxmin').innerText = '-- ºC';
+                document.getElementById('humidity').innerText = '-- %'
+                return;
+              }
+              document.getElementById('local').innerHTML = `<strong>${response.name} -</strong> Brasil`;
+              document.getElementById('imgW').setAttribute('src', `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
+              document.getElementById('temp').innerText = `${response.main.temp.toString().split('.')[0]}ºC`;
+              document.getElementById('feelslike').innerText = `${response.main.feels_like.toString().split('.')[0]}º`;
+              document.getElementById('humidity').innerText = `${response.main.humidity}%`;
+              document.getElementById('tmaxmin').innerText = `${response.main.temp_max.toString().split('.')[0]}º - ${response.main.temp_min.toString().split('.')[0]}º`
+            })
+          )
+        }))
       }, 800)
     }
   }
