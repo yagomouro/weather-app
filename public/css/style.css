@@ -28,6 +28,7 @@
 
 html {
   height: 100%;
+  min-height: 500px;
   font-family: "Helvetica", sans-serif;
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -120,6 +121,7 @@ html.transition *:after {
 
 body {
   height: 100vh;
+  min-height: 500px;
   width: 100vw;
   background-color: var(--background);
   background-image: var(--background-img);
@@ -174,13 +176,14 @@ body header .name-theme {
 }
 
 body header .input-local {
-  background-color: var(--white);
-  border-radius: 2rem;
   width: 100%;
   max-width: 60rem;
   min-width: -webkit-min-content;
   min-width: -moz-min-content;
   min-width: min-content;
+  background-color: var(--white);
+  border-radius: 2rem;
+  z-index: 999;
   position: absolute;
   left: 50%;
   margin-left: -30rem;
@@ -252,14 +255,18 @@ body header .input-local input + select::placeholder {
 body header .input-local #selectLocal {
   width: 14rem;
   border-radius: 0 2rem 2rem 0;
-  border-left: 0.3px solid var(--blue-footer);
-  padding-left: 1.5rem;
+  border-left: 0.3px solid var(--gray-500);
+  padding-left: 1.8rem;
 }
 
 body header .input-local #selectLocal option {
   border: none !important;
   border-radius: 4px !important;
   background-color: var(--white);
+}
+
+body header .toggle-theme {
+  z-index: 999;
 }
 
 body header .toggle-theme input {
@@ -382,8 +389,6 @@ body main .app-container .weather-container .local-container .local.row svg {
 
 body main .app-container .weather-container .local-container .local.row svg path {
   fill: var(--text-color);
-  -webkit-transition: all 200ms !important;
-  transition: all 200ms !important;
 }
 
 .sHover body main .app-container .weather-container .local-container .local.row svg:hover path {

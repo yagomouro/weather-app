@@ -2,6 +2,8 @@
 
 body {
     height: 100vh;
+
+    min-height: 500px;
     width: 100vw;
 
     background-color: var(--background);
@@ -46,12 +48,14 @@ body {
         }
 
         .input-local {
-            background-color: var(--white);
-            border-radius: 2rem;
             width: 100%;
             max-width: 60rem;
             min-width: min-content;
 
+            background-color: var(--white);
+            border-radius: 2rem;
+
+            z-index: 999;
             position: absolute;
             left: 50%;
             margin-left: -30rem;
@@ -107,9 +111,9 @@ body {
                 width: 14rem;
 
                 border-radius: 0 2rem 2rem 0;
-                border-left: 0.3px solid var(--blue-footer);
+                border-left: 0.3px solid var(--gray-500);
 
-                padding-left: 1.5rem;
+                padding-left: 1.8rem;
 
                 option {
                     border: none !important;
@@ -126,7 +130,7 @@ body {
         }
 
         .toggle-theme {
-            // height: ;
+            z-index: 999;
 
             input {
                 height: 0;
@@ -238,7 +242,6 @@ body {
                             height: 3rem;
                             path {
                                 fill: var(--text-color);
-                                transition: all 200ms !important;
                             }
                             .sHover &:hover {
                                 path {
