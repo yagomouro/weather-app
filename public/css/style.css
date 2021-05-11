@@ -64,7 +64,25 @@ html.transition *:after {
 
 @media screen and (max-width: 1366px) {
   html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
     font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 40%;
   }
 }
 
@@ -107,32 +125,83 @@ body {
   background-image: var(--background-img);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 10rem;
 }
 
 body header {
   height: 8rem;
   width: 100%;
-  padding: 2rem 10rem;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  padding: 2rem 8rem;
+}
+
+@media screen and (max-width: 900px) {
+  body header {
+    padding: 2rem 4rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body header {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    height: 12.5rem;
+  }
 }
 
 body header p {
   font-size: 2.4rem;
   font-weight: bold;
   color: var(--text-color);
+  white-space: nowrap;
+}
+
+body header .name-theme {
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  body header .name-theme .name-theme {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 6rem;
+  }
 }
 
 body header .input-local {
   background-color: var(--white);
   border-radius: 2rem;
-  width: 60rem;
+  width: 100%;
+  max-width: 60rem;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  position: absolute;
+  left: 50%;
+  margin-left: -30rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
+@media screen and (max-width: 750px) {
+  body header .input-local {
+    position: static;
+    left: 0;
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+}
+
 body header .input-local input {
   padding: 1.4rem 4rem;
-  width: 38rem;
+  width: 100%;
+  max-width: 38rem;
 }
 
 body header .input-local input:after {
@@ -140,8 +209,8 @@ body header .input-local input:after {
   display: block;
   position: relative;
   top: 0;
-  height: 5px;
-  width: 10px;
+  height: 0.5rem;
+  width: 1rem;
   background-color: #f00;
 }
 
@@ -199,8 +268,8 @@ body header .input-local #selectLocal:before {
   display: block;
   position: relative;
   top: 0;
-  height: 5px;
-  width: 10px;
+  height: 0.5rem;
+  width: 1rem;
   background-color: #f00;
 }
 
@@ -221,7 +290,7 @@ body header .toggle-theme input:checked + label {
 }
 
 body header .toggle-theme input:checked + label:after {
-  left: calc(100% - 0.3rem);
+  left: calc(100% - 0.5rem);
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
 }
@@ -253,7 +322,8 @@ body header .toggle-theme label:after {
 
 body main {
   width: 100%;
-  height: calc(100vh - 16rem);
+  height: calc(100vh - 8rem);
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,6 +343,12 @@ body main .app-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (max-width: 750px) {
+  body main .app-container {
+    width: 70%;
+  }
 }
 
 body main .app-container .weather-container {
@@ -299,6 +375,7 @@ body main .app-container .weather-container .local-container h1 strong {
 }
 
 body main .app-container .weather-container .local-container h2 {
+  margin-left: 3.5rem;
   font-size: 1.8rem;
   color: var(--minor-text-color);
 }
@@ -307,12 +384,32 @@ body main .app-container .weather-container .local-container .local.row {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 1rem;
-  gap: 10px;
+  gap: 1rem;
+}
+
+body main .app-container .weather-container .local-container .local.row svg {
+  width: 1.9rem;
+  height: 3rem;
 }
 
 body main .app-container .weather-container .local-container .local.row svg path {
   fill: var(--text-color);
+  -webkit-transition: all 200ms !important;
+  transition: all 200ms !important;
+}
+
+.sHover body main .app-container .weather-container .local-container .local.row svg:hover path {
+  fill: #ff4646;
+}
+
+@media screen and (max-width: 450px) {
+  body main .app-container .weather-container .local-container {
+    gap: 1rem;
+  }
 }
 
 body main .app-container .weather-container .weather {
@@ -349,7 +446,20 @@ body main .app-container .weather-container .weather h1 {
   color: var(--text-color);
 }
 
+@media screen and (max-width: 400px) {
+  body main .app-container .weather-container .weather h1 {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body main .app-container .weather-container .weather {
+    gap: 2rem;
+  }
+}
+
 body main .app-container .weather-container .weather-info {
+  margin: auto;
   height: 7.5rem;
   width: 53rem;
   padding: 1.6rem 3.5rem;
@@ -397,6 +507,33 @@ body main .app-container .weather-container .weather-info div:not(:last-child):a
   background-color: var(--white);
 }
 
+@media screen and (max-width: 540px) {
+  body main .app-container .weather-container .weather-info {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    margin-bottom: 5rem;
+    gap: 3rem;
+    padding: 4rem 3rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body main .app-container .weather-container .weather-info h1 {
+    font-size: 2.5rem !important;
+  }
+  body main .app-container .weather-container .weather-info h2 {
+    font-size: 1.8rem !important;
+  }
+  body main .app-container .weather-container .weather-info div::after {
+    display: none !important;
+  }
+}
+
 body main .app-container .svg-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -410,6 +547,12 @@ body main .app-container .svg-container .svg {
   background-image: var(--svg-day);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media screen and (max-width: 900px) {
+  body main .app-container .svg-container {
+    display: none;
+  }
 }
 
 body footer {
@@ -450,5 +593,14 @@ body footer .row a svg path {
 body footer .row a svg:hover path {
   -webkit-filter: brightness(0.7);
           filter: brightness(0.7);
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    background-size: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */

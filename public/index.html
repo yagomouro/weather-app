@@ -5,11 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/style.css" />
-        <title>Weather App.</title>
+        <title>Weather App</title>
     </head>
     <body>
         <header class="row">
-            <p>Weather App</p>
+            <div class="name-theme row">
+                <p>Weather App.</p>
+                <div class="toggle-theme">
+                    <input type="checkbox" id="switch" />
+                    <label for="switch">Toggle</label>
+                </div>
+            </div>
             <div class="input-local row">
                 <input
                     oninput="sliceLength()"
@@ -23,33 +29,26 @@
                     <option value="cidade">Cidade</option>
                 </select>
             </div>
-            <div class="toggle-theme">
-                <input type="checkbox" id="switch" />
-                <label for="switch">Toggle</label>
-            </div>
         </header>
         <main>
             <div class="app-container row">
                 <div class="weather-container column">
                     <div class="local-container">
-                        <h2 id="data">date</h2>
                         <div class="local row">
                             <svg
-                                width="20"
-                                height="32"
                                 viewBox="0 0 20 32"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
                                     d="M10.0227 0H9.97719C4.47567 0 0 4.47418 0 9.9736C0 13.5785 1.64171 18.336 4.87952 24.1143C7.28002 28.3981 9.71417 31.6791 9.73855 31.7117C9.8063 31.8027 9.9131 31.8563 10.0263 31.8563C10.0295 31.8563 10.0328 31.8564 10.036 31.8562C10.1527 31.853 10.2605 31.7932 10.3252 31.6959C10.3493 31.6596 12.7661 28.0099 15.1502 23.546C18.3683 17.521 20 12.9544 20 9.9736C19.9998 4.4741 15.524 0 10.0227 0ZM14.628 10.2173C14.628 12.7693 12.5519 14.8454 9.99985 14.8454C7.44791 14.8454 5.37176 12.7693 5.37176 10.2173C5.37176 7.66539 7.44791 5.58924 9.99985 5.58924C12.5519 5.58924 14.628 7.66539 14.628 10.2173Z"
-                                    fill="#f00"
                                 />
                             </svg>
                             <h1 id="local">
                                 <strong>Digite um CEP do Brasil</strong>
                             </h1>
                         </div>
+                        <h2 id="data">date</h2>
                     </div>
                     <div class="weather row">
                         <div class="imgW-container">

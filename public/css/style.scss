@@ -8,51 +8,90 @@ body {
     background-image: var(--background-img);
     background-repeat: no-repeat;
     background-size: cover;
+
+    padding-bottom: 10rem;
     header {
         height: 8rem;
         width: 100%;
+        min-width: min-content;
 
-        padding: 2rem 10rem;
+        padding: 2rem 8rem;
+
+        @media screen and (max-width: 900px) {
+            padding: 2rem 4rem;
+        }
+
+        @media screen and (max-width: 750px) {
+            flex-direction: column !important;
+
+            height: 12.5rem;
+        }
 
         p {
             font-size: 2.4rem;
             font-weight: bold;
             color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .name-theme {
+            width: 100%;
+
+            @media screen and (max-width: 750px) {
+                .name-theme {
+                    justify-content: center;
+                    gap: 6rem;
+                }
+            }
         }
 
         .input-local {
             background-color: var(--white);
             border-radius: 2rem;
+            width: 100%;
+            max-width: 60rem;
+            min-width: min-content;
 
-            width: 60rem;
+            position: absolute;
+            left: 50%;
+            margin-left: -30rem;
+
             justify-content: space-between;
+
+            @media screen and (max-width: 750px) {
+                position: static;
+                left: 0;
+                margin-left: 0;
+
+                margin-top: 5rem;
+            }
+
             input {
-                & {
-                    padding: 1.4rem 4rem;
-                    width: 38rem;
+                padding: 1.4rem 4rem;
+                width: 100%;
+                max-width: 38rem;
 
-                    &:after {
-                        content: "bsbs";
-                        display: block;
-                        position: relative;
+                &:after {
+                    content: "bsbs";
+                    display: block;
+                    position: relative;
 
-                        top: 0;
+                    top: 0;
 
-                        height: 5px;
-                        width: 10px;
+                    height: 0.5rem;
+                    width: 1rem;
 
-                        background-color: #f00;
-                    }
+                    background-color: #f00;
+                }
 
-                    &::-webkit-outer-spin-button,
-                    &::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                        margin: 0;
-                    }
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
 
-                    &[type="number"] {
-                        -moz-appearance: textfield;
-                    }
+                &[type="number"] {
+                    -moz-appearance: textfield;
                 }
 
                 &,
@@ -87,8 +126,8 @@ body {
 
                     top: 0;
 
-                    height: 5px;
-                    width: 10px;
+                    height: 0.5rem;
+                    width: 1rem;
 
                     background-color: #f00;
                 }
@@ -121,7 +160,7 @@ body {
                 }
 
                 &:checked + label:after {
-                    left: calc(100% - 0.3rem);
+                    left: calc(100% - 0.5rem);
                     transform: translateX(-100%);
                 }
             }
@@ -163,7 +202,9 @@ body {
 
     main {
         width: 100%;
-        height: calc(100vh - 16rem);
+        height: calc(100vh - 8rem);
+
+        margin: auto;
 
         display: flex;
         align-items: center;
@@ -173,6 +214,11 @@ body {
             gap: 2rem;
             align-items: center;
             justify-content: center;
+
+            @media screen and (max-width: 750px) {
+                width: 70%;
+                // margin-top: 4rem;
+            }
 
             .weather-container {
                 width: 100%;
@@ -195,21 +241,34 @@ body {
                         }
                     }
                     h2 {
+                        margin-left: 3.5rem;
                         font-size: 1.8rem;
                         color: var(--minor-text-color);
                     }
 
                     .local.row {
                         justify-content: flex-start;
+                        align-items: center;
                         margin-top: 1rem;
 
-                        gap: 10px;
+                        gap: 1rem;
 
                         svg {
+                            width: 1.9rem;
+                            height: 3rem;
                             path {
                                 fill: var(--text-color);
+                                transition: all 200ms !important;
+                            }
+                            .sHover &:hover {
+                                path {
+                                    fill: #ff4646;
+                                }
                             }
                         }
+                    }
+                    @media screen and (max-width: 450px) {
+                        gap: 1rem;
                     }
                 }
 
@@ -234,10 +293,19 @@ body {
                     h1 {
                         font-size: 8rem;
                         color: var(--text-color);
+
+                        @media screen and (max-width: 400px) {
+                            font-size: 6rem;
+                        }
+                    }
+
+                    @media screen and (max-width: 750px) {
+                        gap: 2rem;
                     }
                 }
 
                 .weather-info {
+                    margin: auto;
                     height: 7.5rem;
                     width: 53rem;
                     padding: 1.6rem 3.5rem;
@@ -278,6 +346,28 @@ body {
                             background-color: var(--white);
                         }
                     }
+
+                    @media screen and (max-width: 540px) {
+                        width: max-content;
+                        height: max-content;
+                        margin-bottom: 5rem;
+                        gap: 3rem;
+                        padding: 4rem 3rem;
+
+                        flex-direction: column;
+
+                        h1 {
+                            font-size: 2.5rem !important;
+                        }
+
+                        h2 {
+                            font-size: 1.8rem !important;
+                        }
+
+                        div::after {
+                            display: none !important;
+                        }
+                    }
                 }
             }
             .svg-container {
@@ -289,6 +379,10 @@ body {
                     background-image: var(--svg-day);
                     background-repeat: no-repeat;
                     background-size: contain;
+                }
+
+                @media screen and (max-width: 900px) {
+                    display: none;
                 }
             }
         }
@@ -332,5 +426,10 @@ body {
                 }
             }
         }
+    }
+
+    @media screen and (max-width: 750px) {
+        height: max-content;
+        background-size: auto;
     }
 }
