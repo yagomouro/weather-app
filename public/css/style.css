@@ -8,6 +8,7 @@
   --gray-600: #595858;
   --blue-footer: #22263c;
   --blue-dark: #312c29;
+  --blue-light: #2455da;
   --blue-gradient: linear-gradient(90deg, #162e8f 0%, #2455da 100%);
 }
 
@@ -208,8 +209,10 @@ body header .input-local {
 body header .input-local input {
   padding: 1.4rem 4rem;
   width: 100%;
-  border: 0.1rem solid transparent;
+  border: 0.3rem solid transparent;
   border-radius: 2rem 0 0 2rem;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
 }
 
 body header .input-local input::-webkit-outer-spin-button, body header .input-local input::-webkit-inner-spin-button {
@@ -260,18 +263,22 @@ body header .input-local input + select::placeholder {
 }
 
 body header .input-local input:focus {
-  border: 0.1rem solid var(--black);
+  border: 0.3rem solid var(--blue-light);
+  -webkit-transition: all 300ms !important;
+  transition: all 300ms !important;
 }
 
 body header .input-local #selectLocal {
   width: 14rem;
   border-radius: 0 2rem 2rem 0;
-  border: 0.1rem solid transparent;
+  border: 0.3rem solid transparent;
   border-left: 0.03rem solid var(--gray-500);
   padding: 0 1.8rem;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
   background-image: url("/img/icon_select.svg");
   background-repeat: no-repeat;
   background-color: transparent;
@@ -288,7 +295,9 @@ body header .input-local #selectLocal option {
 body header .input-local #selectLocal:focus {
   outline: none;
   border: none;
-  border: 0.1rem solid !important;
+  border: 0.3rem solid var(--blue-light);
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
 }
 
 body header .input-local label[for="inputCEP"]::before {
@@ -630,8 +639,8 @@ body footer .row a svg {
 
 body footer .row a svg path {
   fill: var(--svg);
-  -webkit-transition: all 300ms !important;
-  transition: all 300ms !important;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
 }
 
 body footer .row a svg:hover path {

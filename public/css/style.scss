@@ -73,8 +73,10 @@ body {
                 padding: 1.4rem 4rem;
                 width: 100%;
                 // max-width: 38rem;
-                border: 0.1rem solid transparent;
+                border: 0.3rem solid transparent;
                 border-radius: 2rem 0 0 2rem;
+
+                transition: all 300ms;
 
                 &::-webkit-outer-spin-button,
                 &::-webkit-inner-spin-button {
@@ -106,7 +108,8 @@ body {
                 }
 
                 &:focus {
-                    border: 0.1rem solid var(--black);
+                    border: 0.3rem solid var(--blue-light);
+                    transition: all 300ms !important;
                 }
             }
 
@@ -114,12 +117,15 @@ body {
                 width: 14rem;
 
                 border-radius: 0 2rem 2rem 0;
-                border: 0.1rem solid transparent;
+                border: 0.3rem solid transparent;
                 border-left: 0.03rem solid var(--gray-500);
 
                 padding: 0 1.8rem;
 
                 appearance: none;
+
+                transition: all 300ms;
+
                 background-image: url("/img/icon_select.svg");
                 background-repeat: no-repeat;
                 background-color: transparent;
@@ -135,7 +141,10 @@ body {
                 &:focus {
                     outline: none;
                     border: none;
-                    border: 0.1rem solid !important;
+
+                    border: 0.3rem solid var(--blue-light);
+
+                    transition: all 300ms;
                 }
             }
 
@@ -442,7 +451,7 @@ body {
 
                     path {
                         fill: var(--svg);
-                        transition: all 300ms !important;
+                        transition: all 300ms;
                     }
                     &:hover {
                         path {
