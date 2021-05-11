@@ -18,9 +18,7 @@
   <img src="https://img.shields.io/github/stars/yagomouro/weather-app?label=stars&message=MIT&color=FAFAFB&labelColor=162E8F" alt="GitHub stars">
 </p>
 
-<h1> 
-  🖥️ Desktop version:
-</h1>
+## 🖥️ Desktop version:
 
 <p align="center">
     <img alt="Weather app" title="Weather app" src="https://github.com/yagomouro/weather-app/blob/master/public/img/index-light.png"/>
@@ -30,9 +28,7 @@
     <img alt="Weather app" title="Weather app" src="https://github.com/yagomouro/weather-app/blob/master/public/img/index-dark.png" />
 </p>
 
-<h1> 
-  📱 Mobile version:
-</h1>
+## 📱 Mobile version:
 
 <p align="center">
     <img alt="Weather app" title="Weather app" widht="600px" height="600px" src="https://github.com/yagomouro/weather-app/blob/master/public/img/mobile-light.png"/>
